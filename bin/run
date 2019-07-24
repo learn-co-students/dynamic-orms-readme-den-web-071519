@@ -1,13 +1,21 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 require 'sqlite3'
+require 'pry'
 
 require_relative "../lib/song.rb"
 require_relative "../config/environment.rb"
 
+Song.add_swag_level
 
 song = Song.new(name: "Hello", album: "25")
 puts "song name: " + song.name
 puts "song album: " + song.album
 song.save
 
+benny = Song.new(swag_level: 9000, name: "Benny and the Jets", album: "That good one")
+puts "song name:" + benny.name
+puts "which album it be?" + benny.album
+puts "how swaggy it be?" + benny.swag_level
+benny.save
+# binding.pry
 DB[:conn].execute("SELECT * FROM songs")
