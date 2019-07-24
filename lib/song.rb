@@ -58,7 +58,8 @@ class Song
     DB[:conn].execute(sql)
   end
 
+  def self.add_swag_level
+    DB[:conn].execute("ALTER TABLE songs ADD COLUMN swag_level TEXT DEFAULT 6000;")
+  end
+
 end
-
-
-
